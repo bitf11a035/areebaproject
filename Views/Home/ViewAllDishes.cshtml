@@ -1,0 +1,88 @@
+﻿@model EADProject.Models.DishProduct
+@{
+    ViewBag.Title = "ViewAllDishes";
+    Layout = "~/Views/Shared/_Layoutdish.cshtml";
+}
+@section tabs{
+    <div class="menu-row">
+        <div class="menu-border">
+            <div class="main">
+                <nav>
+                    <ul class="menu">
+                        <li><a>@Session["user"]</a></li>
+                        <li><a class="active" href="/Home/index">Main</a></li>
+
+                        <li><a href="/User/ViewAllDishes">Dish to Order</a></li>
+                        <li class="last"><a href="/Home/Contactus">Contacts</a></li>
+
+                        <li><a href="/User/logout">Log Out</a></li>
+                        <li><a href="/User/SignUp">Sign Up</a></li>
+                        <li><a href="/Home/About">About Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+<article class="col-1">
+    <div class="bg">
+        <div class="padding">
+            <h2 class="p2">Dishes</h2>
+            <div class="wrapper p3">
+
+
+                @foreach(var x in ViewBag.X)
+    {
+                    <figure class="img-indent">
+                        <img src="~/images/@x.Imagepath" alt="" width="50%" height="50%" />
+                        <div class="extra-wrap">
+                            <h3>@x.Name</h3>
+                            <p class="p1">Quantity: @x.Quantity</p>
+                            <p class="p1">Region: @x.Region</p>
+                            <p class="p1">Price: Rs: @x.Price/1kg</p>
+                            <p class="p1">Category: @x.category</p>
+                            <p class="p1">  @Html.ActionLink("Order Now", "ordernow", new { id=x.DPId })</p>
+                            <br />
+
+                        </div>
+                    </figure>
+    }
+            </div>
+        </div>
+    </div>
+
+</article>
+
+@*<br><br><br>
+
+
+<div align="center">
+    <form method="post" action="/Admin/search2">
+        <input name="__RequestVerificationToken" type="hidden" value="TEkqAODASCdjTLCEIMTt9B2y9YN-6eUEKDI7GpOBCRwCYxuUOGREHOJFUNKYW8i8OSHqtwlGCQ2bLNjrSVNtSf3Hm2Y2dTy0nR9pL5IG-Qc1" />
+        <br><br><br>
+       
+        <div class="form-group" align="left">
+            <label class="col-md-3 control-label" for="name">Enter name of a dish</label>
+            <div class="col-md-3">
+                <input autofocus="" class="form-control input-md" id="name" name="dname" placeholder="e.g. Lazania" type="text" value="" />
+                <span class="field-validation-valid" data-valmsg-for="name" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        </form>
+    </div>
+        <br><br><br>
+        <br><br><br>
+        <br><br><br>
+        <br><br><br>
+        @*Enter ID: <input type="text" name="search" id="search" />
+        <input type="button" class="btn-danger" id="b1" value="Check" /><br />
+        <input type="submit" id="b2" value="Show Details" /><br />
+    </form>
+</div>
+<div id="result"></div>*@

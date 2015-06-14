@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Contactus";
+    Layout = "~/Views/Shared/_Layoutpage.cshtml";
+}
+<article class="col-1">
+    <div class="indent-left">
+        <h3>Contact Form</h3>
+        <div class="p3">
+            <form id="contact-form" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <label><span class="text-form">Full Name:</span><input name="p1" type="text" /></label>
+                    <label><span class="text-form">E-mail:</span><input name="p2" type="text" /></label>
+                    <div class="wrapper">
+                        <br />
+                        <br />
+                        <div class="text-form">Message:</div>
+                        <div class="extra-wrap">
+                            <textarea></textarea>
+                            <div class="clear"></div>
+                            <div class="buttons">
+                                <a class="button-2" href="#" onclick="document.getElementById('contact-form').reset()">Clear</a>
+                                <a class="button-2" href="#" onclick="document.getElementById('contact-form').submit()">Send</a>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</article>
+<article class="col-10">
+    <h3 class="border-bot indent-bot">Our Contacts</h3>
+    <div class="img-indent-bot">
+        <h6>Pakistan</h6>
+        <dl>
+            <dt>Near Punjab University</dt>
+            <dd><span>Telephone:</span>  +1 959 603 6035</dd>
+            <dd><span>FAX:</span>  +1 504 889 9898</dd>
+            <dd><span>E-mail:</span><a href="#">pucit@edu.pk</a></dd>
+        </dl>
+    </div>
+    <div class="img-indent-bot">
+        <h6>CANADA</h6>
+        <dl>
+            <dt>8901 Marmora Road, Glasgow, D04</dt>
+            <dd><span>Telephone:</span>  +1 959 603 6035</dd>
+            <dd><span>FAX:</span>  +1 504 889 9898</dd>
+            <dd><span>E-mail:</span><a href="#">bitf12a013@pucit.edu.pk</a></dd>
+        </dl>
+    </div>
+</article>

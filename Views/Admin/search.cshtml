@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "search";
+    Layout = "~/Views/Shared/_Layoutdish.cshtml";
+}
+@section tabs{
+    <div class="menu-row">
+        <div class="menu-border">
+            <div class="main">
+                <nav>
+                    <ul class="menu">
+                        <li><a>@Session["user"]</a></li>
+                        <li><a class="active" href="/Home/Index">Home</a></li>
+
+                        <li><a href="/Customer/ViewAllDishes">View all Dishes</a></li>
+
+                        <li><a href="/User/logout">  Log Out</a></li>
+                        <li class="last"><a href="/Home/contactus">Contacts</a></li>
+                        <li><a href="/Home/About">About Us</a></li>
+                        <li><a href="/Admin/Gallery">Gallery</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+}
+<div align="center">
+        Enter Dish Name: <input type="text" name="search" id="search" />
+        <input type="button" id="b1" value="Check" /><br />
+</div>
+
+<div id="result"></div>
+<script>
+
+    $(document).ready(function () {
+
+
+        $('#b1').click(function () {
+            var nameofdish = $('#search').val();
+            $('#checking').show();
+            $.getJSON("/Admin/search3?nameofdish=" + nameofdish, function (data) {
+                $('#checking').hide();
+                $.each(data, function (i, item) {
+                    alert("data" + data);
+                    $('#result').append('<figure class=img-indent ><img src=~/images/' + item.Imagepath + 'width=50% height=50%/><div class=extra-wrap ><h3>' + item.Name + '</h3><p class=p1>Quantity: ' + item.Quantity + '</p><p class=p1>Region: ' + item.Region + '</p><p class=p1>Category: ' + item.category + '</p></div></figure>');
+
+                });
+            });
+
+        });
+
+    });
+</script>

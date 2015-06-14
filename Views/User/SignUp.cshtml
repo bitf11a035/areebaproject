@@ -1,0 +1,188 @@
+﻿@using System.Web.Optimization;
+@model EADProject.Models.Customer
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_Layoutpage.cshtml";
+}
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="~/Scripts/jquery.validate.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+
+<script>
+    $(function () {
+
+    });
+</script>
+
+
+
+<br><br><br>
+<h1><span><strong><em style="margin-left:250px">Signup</em></strong></span></h1> <br />
+<br><br><br>
+<form class="form-horizontal" action="/User/signupcheck" method="post" enctype="multipart/form-data">
+
+    <!-- for jquery server side form verification -->
+    <input name="__RequestVerificationToken" type="hidden" value="TEkqAODASCdjTLCEIMTt9B2y9YN-6eUEKDI7GpOBCRwCYxuUOGREHOJFUNKYW8i8OSHqtwlGCQ2bLNjrSVNtSf3Hm2Y2dTy0nR9pL5IG-Qc1" />
+
+
+
+    <!-- Form Name -->
+    <!-- for printing result of check email button-->
+    <div class="form-group" align="center" style="text-align:left">
+        @using (Html.BeginForm("signupcheck", "User", FormMethod.Post))
+        {
+            <table style="margin-left:300px">
+                <tr>
+                    <td><p>@Html.LabelFor(m => m.username)</p></td>
+                    <td>
+                        @Html.TextBoxFor(m => m.username, new { id = "username" })
+                        @Html.ValidationMessageFor(m => m.username)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.email)</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.email, new { id = "email" })
+                        @Html.ValidationMessageFor(m => m.email)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><p>@Html.LabelFor(m => m.password)</p></td>
+                    <td>
+                        @Html.PasswordFor(m => m.password, new { id = "password" })
+                        @Html.ValidationMessageFor(m => m.password)
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>@Html.LabelFor(m => m.Address)</p> </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Address, new { id = "Address" })
+                    @Html.ValidationMessageFor(m => m.Address)
+                </td>
+            </tr>
+            <tr>
+                <td><p>@Html.LabelFor(m => m.phoneno)</p> </td>
+                <td>
+                    @Html.TextBoxFor(m => m.phoneno, new { id = "phoneno" })
+                @Html.ValidationMessageFor(m => m.phoneno)
+            </td>
+        </tr>
+        <tr><td><p><strong> Date of Birth: </strong></p>  </td><td> <input type="date" id="calendar" /></td></tr>
+        <tr>
+            <td><p>@Html.LabelFor(m => m.City)</p> </td>
+            <td>
+                @Html.TextBoxFor(m => m.City, new { id = "City" })
+            @Html.ValidationMessageFor(m => m.City)
+        </td>
+    </tr>
+    <tr>
+        <td><p>@Html.LabelFor(m => m.Country)</p> </td>
+        <td>
+            @Html.TextBoxFor(m => m.Country, new { id = "Country" })
+        @Html.ValidationMessageFor(m => m.Country)
+    </td>
+</tr>
+<tr><td><p><strong>Gender</strong></p> </td><td> <select name="gender_select" style=""><option id="male_option">Male</option><option id="female_option">Female</option></select></td></tr>
+<tr><td><input type="submit" value="Proceed" /></td></tr>
+
+</table>
+        }
+        </div>
+</form>
+
+
+@*<div class="col-sm-12 col-md-12" id="result">
+            </div>
+        </div>
+
+
+        <!-- Text input-->
+        <div class="form-group" style="margin-left:300px">
+            @*<label class="col-md-4 control-label" for="name">First Name</label>
+            <p>@Html.LabelFor(m => m.username)</p>
+            <div class="col-md-4" align="left" style="margin-left:100px">
+                @*<input class="form-control input-md" id="name" name="First Name" placeholder="e.g. Areeba" required="" type="text" value="" />
+                @Html.TextBoxFor(m => m.username, new { id = "username" })
+
+            </div>
+        </div>
+
+
+        <!-- Text input-->
+        @*<div class="form-group" align="left" style="margin-left:300px">
+            <label class="col-md-4 control-label" for="name">Last Name</label>
+            <div class="col-md-4" align="left" style="margin-left:100px">
+                <input class="form-control input-md" id="name" name="First Name" placeholder="e.g. Areeba" required="" type="text" value="" />
+
+
+            </div>
+        </div>
+
+
+        <!-- Text input-->
+        <div class="form-group" align="left" style="margin-left:300px">
+            @*<label class="col-md-4 control-label" for="name">Address</label>
+            <p>@Html.LabelFor(m => m.Address)</p>
+            <div class="col-md-4" align="left" style="margin-left:100px">
+                @*<input class="form-control input-md" id="name" name="First Name" required="" type="text" value="" />
+                @Html.TextBoxFor(m => m.Address, new { id = "Address" })
+            </div>
+            @Html.ValidationMessageFor(m => m.Address)
+        </div>
+
+
+
+        <!-- Text input-->
+        <div class="form-group" align="left" style="margin-left:300px">
+            <label class="col-md-4 control-label" for="email">Email</label>
+            @Html.LabelFor(m => m.email)
+            <div class="col-md-4" align="left" style="margin-left:100px">
+                <input class="form-control input-md" id="email" name="email" placeholder="e.g. example@domain.com" required="" type="email" value="" />
+                @Html.TextBoxFor(m => m.email, new { id = "email" })
+                @*<span class="field-validation-valid" data-valmsg-for="email" data-valmsg-replace="true"></span>
+            @Html.ValidationMessageFor(m => m.email)
+            </div>
+
+        </div>
+
+        <!-- Password input-->
+        <div class="form-group" align="left" style="margin-left:300px">
+            <label class="col-md-4 control-label" for="password">Password</label>
+            @Html.LabelFor(m => m.password)
+            <div class="col-md-4" align="left" style="margin-left:100px">
+                <input class="form-control input-md" id="password" name="password" placeholder="Password" required="" type="password" value="" />
+                @Html.PasswordFor(m => m.password, new { id = "password" })
+            </div>
+            @Html.ValidationMessageFor(m => m.password)
+        </div>
+
+
+        <div class="form-group" align="left" style="margin-left:300px">
+            <label class="col-md-4 control-label" for="confirmPassword">Confirm Password</label>
+            <div class="col-md-4" align="left" style="margin-left:100px">
+                <input id=" confirmpassword" name="confirmPassword" type="password" placeholder="Confirm Password" class="form-control input-md" required="">
+
+            </div>
+        </div>
+                <div class="form-group" align="left" style="margin-left:300px">
+                    @Html.LabelFor(m => m.phoneno)
+                    <div class="col-md-8" align="left" style="margin-left:100px">
+
+                        <!-- Button  -->
+                        <div class="form-group" align="left" style="margin-left:300px">
+                            <label class="col-md-4 control-label" for="signup"></label>
+                            <div class="col-md-8" align="left" style="margin-left:100px">
+                                <input type="submit" id="signup" name="signup" class="btn btn-success" value="signup" />
+                                <a id="login" class="btn btn-info" href="Login.html">login</a>
+                            </div>
+                        </div>
+
+    </fieldset>*@
+
+
+

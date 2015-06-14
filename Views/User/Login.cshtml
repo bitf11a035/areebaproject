@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layoutpage.cshtml";
+}
+
+<br /><br /><br />
+
+<center>
+    <h1><span><strong><em style="margin-left:250px">Member Login</em></strong></span></h1> <br />
+</center>
+<br /><br /><br />
+<div id="leftPan" align="center" style="text-align:left">
+    <form action="/User/Login" method="post" class="form-horizontal">
+
+        <table style="margin-left:300px">
+            <tr><td><p>Name</p></td><td><input name="login-name" type="text" /></td></tr>
+            <tr>
+                <td><p>Password</p></td>
+                <td>
+                    <input name="login-password" type="password" /><br />
+                    <br />
+                </td>
+            </tr>
+            <tr><td><input type="submit" value="Log in" /></td></tr>
+        </table>
+    </form>
+</div>  
+
+
+        <!-- Text input-->
+        @*<div class="form-group" align="left">
+            <label class="col-md-3 control-label" for="login-name">UserName</label>
+            <div class="col-md-3">
+                <input autofocus="" class="form-control input-md" id="uname" name="login-name" type="text" value="" />
+                <span class="field-validation-valid" data-valmsg-for="login-name" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <!-- Password input-->
+        <div class="form-group" align="left">
+            <label class="col-md-3 control-label" for="password">Password</label>
+            <div class="col-md-3">
+                <input class="form-control input-md" id="password" name="password" placeholder="Password" required="" type="password" value="" />
+                <span class="field-validation-valid" data-valmsg-for="password" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- Button -->
+        <div class="form-group" align="left">
+            <label class="col-md-4 control-label" for="login"></label>
+            <div class="col-md-1">
+                <input type="submit" id="login" name="login" class="btn btn-info btn-lg btn-block" value="login" />
+            </div>
+        </div>
+        <br />
+        <p class="text-center">
+
+            <a href="SignUp.html">Register for an account?</a>
+
+        </p>
+
+    </form>
+</section>*@
+
+@*<style type="text/css">
+    .btngoogle {
+        background-image: url(images/google+login+button.png);
+        border: 1px solid white;
+        cursor: pointer;
+    }
+</style>
+<script type="text/javascript">
+    function showimage() {
+        var i = document.getElementById("imggoogle");
+        i.src = "images/google+logout+button.png";
+        i.style.border = "1px solid white";
+    }
+
+</script>
+<asp:Button ID="btnLoginToGoogle" runat="server" OnCommand="OpenLogin_Click"
+            ToolTip="Google_Login" CssClass="btngoogle"
+            CommandArgument="https://www.google.com/accounts/o8/id" Height="34px"
+            Width="143px" />
+
+
+<div id="bodyPan">
+    <h1><span><strong><em style="margin-left:250px">Member Login</em></strong></span></h1> <br />
+    <div id="leftPan" align="center" style="text-align:left">
+        <form action="/Account/login" method="post" class="form1">
+            <table style="margin-left:300px">
+                <tr><td><p>Name</p></td><td><input name="login-name" type="text" /></td></tr>
+                <tr>
+                    <td><p>Password</p></td>
+                    <td>
+                        <input name="login-password" type="password" /><br />
+                        <br />
+                    </td>
+                </tr>
+                <tr><td><input type="submit" value="Log in" /></td></tr>
+            </table>
+        </form>
+    </div>
+</div>*@

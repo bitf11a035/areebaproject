@@ -1,0 +1,82 @@
+﻿@model EADProject.Models.DishProduct
+@{
+    ViewBag.Title = "ordernow";
+    Layout = "~/Views/Shared/_Layoutdish.cshtml";
+}
+@section tabs{
+    <div class="menu-row">
+        <div class="menu-border">
+            <div class="main">
+                <nav>
+                    <ul class="menu">
+                        <li><a>@Session["user"]</a></li>
+                        <li><a class="active" href="/Home/index">Main</a></li>
+
+                        <li><a href="/Customer/calendar">Dishes To Order</a></li>
+
+                        <li><a href="/User/logout">  Log Out</a></li>
+                        <li class="last"><a href="/Home/contacts">Contacts</a></li>
+                        <li><a href="/Home/about">About Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+}
+<div>
+    <img src="~/images/@ViewBag.X.Imagepath" alt="" width="40%" height="40%" />
+</div>
+@using (Html.BeginForm("ordernowconfirm", "Home", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend></legend>
+        @Html.HiddenFor(model => model.DPId)
+
+        <div>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.Name)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Name)
+            </div>
+        </div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Region)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Region)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Quantity)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.category)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.category)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Price)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Price)
+        </div>
+        <div>
+            Enter quantity to order: @Html.TextBox("quan");
+            @*Enter quantity to order: <input type="number" name="quantity" id="quantity"})*@
+        </div>
+
+    </fieldset>
+
+    <p>
+        @* @Html.ActionLink("Add to cart", "ordernowconfirm", new {id=ViewBag.X.DPId })*@
+        <input class="button-2" type="submit" value="Add to cart" @* id="@ViewBag.X.DPId"*@ />
+    </p>
+}

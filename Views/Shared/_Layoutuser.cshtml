@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8">
+    <link href="bootstrap.css" rel="stylesheet" />
+    <script src="bootstrap.js"></script>
+    <link rel="stylesheet" href="/Content/reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/Content/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/Content/layout.css" type="text/css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Adamina' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <style>
+        .col-1, .col-2, .col-3,
+        .column-1, .column-2 {
+            float: left;
+        }
+
+        .indent-left {
+            padding-left: 20px;
+        }
+
+        .wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .img-indent {
+            float: left;
+            margin: 0 20px 0px 0;
+        }
+
+        .extra-wrap {
+            overflow: hidden;
+        }
+
+        p {
+            margin-bottom: 18px;
+        }
+
+        .p1 {
+            margin-bottom: 8px;
+        }
+
+        .p2 {
+            margin-bottom: 15px;
+        }
+
+        .p3 {
+            margin-bottom: 30px;
+        }
+
+        .p4 {
+            margin-bottom: 40px;
+        }
+
+        .p5 {
+            margin-bottom: 50px;
+        }
+
+        .bg {
+            width: 100%;
+            padding: 25px 0 28px;
+            background: url(../images/bg-tail.png) left top repeat;
+        }
+
+            .bg .padding {
+                padding: 0 20px 0 39px;
+            }
+
+        .menu li a,
+        .list-2 li a,
+        .pagination li a,
+        .link,
+        .button-1, .button-2,
+        h1 a {
+            text-decoration: none;
+        }
+
+        .menu-row {
+            width: 100%;
+            padding: 0;
+            border-bottom: 1px solid #fff;
+            background: url(../images/menu-row-tail.gif) center top repeat-x #e6e6e6;
+        }
+
+        .menu-border {
+            border-left: 1px solid #fff;
+            border-right: 1px solid #fff;
+        }
+
+        .menu {
+            width: 100%;
+            min-height: 58px;
+            overflow: hidden;
+            background: url(../images/menu-spacer.gif) left top no-repeat;
+        }
+
+            .menu li {
+                float: left;
+                position: relative;
+                background: url(../images/menu-spacer.gif) right top no-repeat;
+            }
+
+                .menu li a {
+                    display: block;
+                    font-family: 'Adamina', serif;
+                    font-size: 20px;
+                    line-height: 2.5em;
+                    letter-spacing: -1px;
+                    padding: 5px 44px 4px 40px;
+                    color: #000;
+                }
+
+            .menu > li:first-child > a {
+                padding: 5px 44px 4px 45px;
+            }
+
+            .menu li.last a {
+                padding: 5px 47px 4px 40px;
+            }
+
+            .menu li a.active,
+            .menu li a:hover {
+                color: #ca4b00;
+            }
+
+        body {
+            background-size: cover;
+            background-position: top center !important;
+            background-repeat: no-repeat !important;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body background="~/Images/page3-img3.jpg">
+
+    <div class=header background:color="black">
+        <div class="container">
+            <a href="About.html"><img src="~/Images/logo.png" alt="" /></a>
+        </div>
+
+        <div class="menu-row">
+            <div class="menu-border">
+                <div class="main">
+                    <nav class="navbar navbar-inverse">
+
+
+                        <div>
+                            <!--For Navigation Bar Tabs-->
+                            <ul class="nav navbar-nav ">
+                                <li class="active"> <a href="~/Home/Index">Home</a></li>
+                                <li> <a href="~/User/Login">Dish to Order</a></li>
+                                <li> <a href="~/User/logout">Logout</a></li>
+                                <li> <a href="~/Home/About">About</a></li>
+                                <li> <a href="~/Home/Contactus">Contact Us</a></li>
+                                <li> <a href="~/User/Login">Admin Panel</a></li>
+                                <li> <a href="~/User/SignUp">Sign Up</a></li>
+
+                            </ul>
+
+                            <!--For Navigation Bar Search Option-->
+                            <form class="navbar-form navbar-left pull-right" role="search">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Search food" />
+                                </div>
+                                <input type="submit" class="btn btn-default" />
+
+                            </form>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @RenderBody();
+
+    @*<footer>
+            <div class="padding">
+                <div class="main">
+                    <div class="wrapper">
+                        <div class="fleft footer-text">
+                            <span>Khan's Food</span> &copy; 2014
+                            <strong>Website by <a href="#">Khan's Food</a></strong>
+                            <!-- {%FOOTER_LINK} -->
+                        </div>
+                        <ul class="list-services">
+                            <li>Link to Us:</li>
+                            <li><a class="tooltips" title="facebook" href="#"></a></li>
+                            <li class="item-1"><a class="tooltips" title="twitter" href="#"></a></li>
+                            <li class="item-2"><a class="tooltips" title="linkedin" href="#"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+                <script type="text/javascript"> Cufon.now(); </script>
+                <script type="text/javascript">
+                    $(window).load(function () {
+                        $('.slider')._TMS({
+                            duration: 1000,
+                            easing: 'easeOutQuart',
+                            preset: 'simpleFade',
+                            slideshow: 10000,
+                            banners: 'fade',
+                            pauseOnHover: true,
+                            waitBannerAnimation: false,
+                            pagination: '.pags'
+                        });
+                    });
+                </script>*@
+
+
+    <footer class="nav nav-third-level ">
+        <p style="margin-top: 130px; width:50px;font-size:20px;font:#ff6a00;color:darkorange">&copy;Gold Palace All rights reserved</p>
+    </footer>
+</body>
+
+</html>
